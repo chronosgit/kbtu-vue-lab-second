@@ -6,6 +6,10 @@
 	font-variation-settings: 'ELGR' 1, 'ELSH' 2;
 }
 
+body {
+	overflow-x: hidden;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -14,6 +18,12 @@
 
 a {
 	text-decoration: inherits;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
 }
 
 button {
