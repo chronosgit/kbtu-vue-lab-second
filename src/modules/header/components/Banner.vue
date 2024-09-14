@@ -1,8 +1,10 @@
 <template>
 	<div class="banner">
-		<h2 class="banner-msg">
-			New trips on Fall season! Full details on our Instagram accounts.
-		</h2>
+		<div class="banner-msg-box">
+			<h2 class="banner-msg">
+				New trips on Fall season! Full details on our Instagram accounts.
+			</h2>
+		</div>
 	</div>
 </template>
 
@@ -14,8 +16,15 @@
 		border-radius: 0.5rem;
 	}
 
+	.banner-msg-box {
+		background: linear-gradient(to right, #ffadac, #ff947f 30%, #ff784e);
+		background-clip: text;
+		color: transparent;
+	}
+
 	.banner-msg {
 		font-family: 'Times New Roman', Times, serif;
-		font-size: 1.2rem;
+		font-size: 1.3rem;
+		letter-spacing: 1px;
 	}
 </style>
