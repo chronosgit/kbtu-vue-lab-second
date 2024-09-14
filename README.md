@@ -1,5 +1,17 @@
-# Vue 3 + Vite
+# Laboratory work #2
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Setup
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+1. Pull the project.
+2. Run `npm install` to install the necessary packages.
+3. Run `npm run serve`, which compiles and supports hot-reloads for development purposes.
+4. **OR**, run `npm run build`, which compiles and minifies for production.
+5. Also, run `npm run lint` for linting and fixing files.
+
+## Design
+
+[Figma design.](https://www.figma.com/design/UtGRJLAdfd162yQo6hVOjk/Vue-js-Task)
+
+## Customize configuration
+
+See [Configuration Reference](https://cli.vuejs.org/config/).
