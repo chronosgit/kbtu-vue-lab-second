@@ -1,12 +1,27 @@
 <script setup>
+	import { inject } from 'vue';
 	import IconBurger from '@/common/components/IconBurger.vue';
 	import IconPerson from '@/common/components/IconPerson.vue';
 	import Banner from './components/Banner.vue';
+
+	const openMenu = inject('openMenu');
+
+	if (!openMenu) {
+		console.error(
+			'Header didn\'t consume the "openMenu". It must be provided from the same level, where the state of "useMenu" hook is initialized.'
+		);
+	}
+
+	const onIconBurgerClick = () => {
+		if (!openMenu || typeof openMenu !== 'function') return;
+
+		openMenu();
+	};
 </script>
 
 <template>
 	<section class="header">
-		<div class="icon-burger-wrapper" @click="console.log('burger click')">
+		<div class="icon-burger-wrapper" @click.stop="onIconBurgerClick">
 			<IconBurger />
 		</div>
 
