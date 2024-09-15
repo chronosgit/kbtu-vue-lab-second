@@ -5,11 +5,13 @@
 	import Screen from '@modules/screen/Screen.vue';
 	import useFilters from './composables/useFilters';
 	import useClickAway from '@/common/composables/useClickAway';
+	import usePeople from './composables/usePeople';
 
 	const menu = useTemplateRef('menu');
 
 	const { isElActive, openEl } = useClickAway(menu);
 	const { filters, activeFilter, onFilterChange } = useFilters();
+	const { people } = usePeople();
 
 	provide('openMenu', openEl);
 	provide('filtersContext', {
@@ -17,6 +19,7 @@
 		activeFilter,
 		onFilterChange,
 	});
+	provide('peopleContext', { people });
 
 	const menuComputedStyle = computed(() => ({
 		left: isElActive.value ? 0 : '-100%',
