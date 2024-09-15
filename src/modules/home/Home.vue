@@ -1,17 +1,25 @@
 <script setup>
 	import { useTemplateRef, computed, provide } from 'vue';
-	import Header from '../header/Header.vue';
-	import Menu from '../menu/Menu.vue';
-	import useMenu from '@/common/composables/useMenu';
+	import Header from '@modules/header/Header.vue';
+	import Menu from '@modules/menu/Menu.vue';
+	import Screen from '@modules/screen/Screen.vue';
+	import useFilters from './composables/useFilters';
+	import useClickAway from '@/common/composables/useClickAway';
 
 	const menu = useTemplateRef('menu');
 
-	const { isMenuActivated, openMenu } = useMenu(menu);
+	const { isElActive, openEl } = useClickAway(menu);
+	const { filters, activeFilter, onFilterChange } = useFilters();
 
-	provide('openMenu', openMenu);
+	provide('openMenu', openEl);
+	provide('filtersContext', {
+		filters,
+		activeFilter,
+		onFilterChange,
+	});
 
 	const menuComputedStyle = computed(() => ({
-		left: isMenuActivated.value ? 0 : '-100%',
+		left: isElActive.value ? 0 : '-100%',
 	}));
 </script>
 
@@ -24,6 +32,10 @@
 
 		<div class="header-wrapper">
 			<Header />
+		</div>
+
+		<div class="screen-wrapper">
+			<Screen />
 		</div>
 	</div>
 </template>
@@ -52,6 +64,10 @@
 
 	.header-wrapper {
 		padding-top: 0.4rem;
+	}
+
+	.screen-wrapper {
+		margin-top: 1rem;
 	}
 
 	@media screen and (min-width: 1280px) {
