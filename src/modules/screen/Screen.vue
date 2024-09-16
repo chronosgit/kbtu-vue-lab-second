@@ -5,14 +5,16 @@
 	import Topic from './components/Topic.vue';
 
 	const filtersContext = inject('filtersContext');
+	const categoriesContext = inject('categoriesContext');
 
-	if (!filtersContext) {
+	if (!filtersContext || !categoriesContext) {
 		throw Error(
-			'Screen must consume filtersContext, so it can pass data to Filter component'
+			'Screen must consume filtersContext and categoriesContext, so it can pass data to Filter component'
 		);
 	}
 
 	const { filters, activeFilter, onFilterChange } = filtersContext;
+	const { activeCategory } = categoriesContext;
 </script>
 
 <template>
@@ -24,7 +26,7 @@
 
 			<div class="features">
 				<!-- Make logical -->
-				<Topic :topic="'Adventure'" />
+				<Topic :topic="activeCategory" />
 
 				<Filter
 					:filters
