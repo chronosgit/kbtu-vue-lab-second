@@ -19,6 +19,7 @@
 
 	.topic {
 		font-size: 3rem;
+		text-transform: uppercase;
 		color: white;
 	}
 </style>

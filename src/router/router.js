@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '@/modules/home/Home.vue';
-import NotFound from '@/modules/not_found/NotFound.vue';
+import Home from '@pages/home/Home.vue';
+import NotFound from '@pages/not_found/NotFound.vue';
 
 const routes = [
 	{
-		path: '/',
+		path: '/topic/:topic',
 		component: Home,
 	},
 	{

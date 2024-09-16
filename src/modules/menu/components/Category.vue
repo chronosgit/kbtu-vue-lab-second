@@ -1,17 +1,20 @@
 <script setup>
 	import { computed } from 'vue';
+	import { useRouter } from 'vue-router';
+
+	const router = useRouter();
 
 	const { category } = defineProps(['category']);
 
-	const categoryValidText = computed(() => {
-		return category.replace('_', ' ');
-	});
+	const navigateTo = () => {
+		router.push(`/topic/${category.toLowerCase()}`);
+	};
 </script>
 
 <template>
-	<div class="category-box">
+	<div class="category-box" @click="navigateTo">
 		<p class="category-name">
-			{{ categoryValidText }}
+			{{ category }}
 		</p>
 	</div>
 </template>
@@ -20,6 +23,7 @@
 	.category-box {
 		padding: 0.5rem 0.2rem;
 		text-align: center;
+		cursor: pointer;
 	}
 
 	.category-name {

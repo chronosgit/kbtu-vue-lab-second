@@ -1,18 +1,16 @@
 <script setup>
 	import Category from './Category.vue';
-	import categories from '../utils/categories';
-	import { categoriesGradients } from '../utils/categories';
+
+	const { categories, categoriesGradients } = defineProps({
+		categories: Object,
+		categoriesGradients: Object,
+	});
 </script>
 
 <template>
 	<div class="categories">
-		<div v-for="c in categories">
-			<Category
-				:category="c"
-				:style="{
-					background: categoriesGradients[c],
-				}"
-			/>
+		<div v-for="(c, i) in categories" :key="i">
+			<Category :category="c" :style="{ background: categoriesGradients[i] }" />
 		</div>
 	</div>
 </template>

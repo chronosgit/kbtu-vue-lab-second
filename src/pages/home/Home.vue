@@ -3,15 +3,21 @@
 	import Header from '@modules/header/Header.vue';
 	import Menu from '@modules/menu/Menu.vue';
 	import Screen from '@modules/screen/Screen.vue';
-	import useFilters from './composables/useFilters';
 	import useClickAway from '@/common/composables/useClickAway';
 	import usePeople from './composables/usePeople';
 
 	const menu = useTemplateRef('menu');
 
 	const { isElActive, openEl } = useClickAway(menu);
-	const { filters, activeFilter, onFilterChange } = useFilters();
-	const { people } = usePeople();
+	const {
+		people,
+		filters,
+		activeFilter,
+		onFilterChange,
+		categories,
+		activeCategory,
+		categoriesGradients,
+	} = usePeople();
 
 	provide('openMenu', openEl);
 	provide('filtersContext', {
@@ -20,6 +26,11 @@
 		onFilterChange,
 	});
 	provide('peopleContext', { people });
+	provide('categoriesContext', {
+		categories,
+		activeCategory,
+		categoriesGradients,
+	});
 
 	const menuComputedStyle = computed(() => ({
 		left: isElActive.value ? 0 : '-100%',

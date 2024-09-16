@@ -6,7 +6,7 @@ const population = [
 		pubData: new Date(2024, 0, 15, 8, 30),
 		rating: 5,
 		commentary: 'Absolutely fantastic experience! Highly recommend.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 2,
@@ -15,7 +15,7 @@ const population = [
 		pubData: new Date(2024, 1, 22, 14, 45),
 		rating: 3,
 		commentary: 'It was okay, but I expected more based on the reviews.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 3,
@@ -24,7 +24,7 @@ const population = [
 		pubData: new Date(2024, 2, 5, 11, 20),
 		rating: 4,
 		commentary: 'Good content, but some areas could be improved.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 4,
@@ -33,7 +33,7 @@ const population = [
 		pubData: new Date(2024, 3, 10, 9, 15),
 		rating: 2,
 		commentary: 'Not great. Had higher expectations.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 5,
@@ -42,7 +42,7 @@ const population = [
 		pubData: new Date(2024, 4, 22, 17, 30),
 		rating: 5,
 		commentary: 'Exceptional work! Would definitely visit again.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 6,
@@ -51,7 +51,7 @@ const population = [
 		pubData: new Date(2024, 5, 6, 13, 50),
 		rating: 1,
 		commentary: 'Very disappointing. Would not recommend.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 7,
@@ -60,7 +60,7 @@ const population = [
 		pubData: new Date(2024, 6, 21, 15, 0),
 		rating: 4,
 		commentary: 'Great content with some minor issues.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 8,
@@ -69,7 +69,7 @@ const population = [
 		pubData: new Date(2024, 7, 12, 10, 25),
 		rating: 3,
 		commentary: 'Average experience, not bad but not great either.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 9,
@@ -78,7 +78,7 @@ const population = [
 		pubData: new Date(2024, 8, 18, 12, 30),
 		rating: 5,
 		commentary: 'Amazing insights and well-written articles!',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 10,
@@ -87,7 +87,7 @@ const population = [
 		pubData: new Date(2024, 9, 25, 14, 40),
 		rating: 2,
 		commentary: 'Not up to the mark, could use some improvements.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 11,
@@ -96,7 +96,7 @@ const population = [
 		pubData: new Date(2024, 10, 9, 16, 20),
 		rating: 4,
 		commentary: 'Good read with useful information.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 12,
@@ -105,7 +105,7 @@ const population = [
 		pubData: new Date(2024, 11, 1, 11, 10),
 		rating: 3,
 		commentary: 'Interesting but lacked depth in some areas.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 13,
@@ -114,7 +114,7 @@ const population = [
 		pubData: new Date(2024, 0, 28, 9, 55),
 		rating: 5,
 		commentary: 'Fantastic! Exceeded all my expectations.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 14,
@@ -123,7 +123,7 @@ const population = [
 		pubData: new Date(2024, 1, 17, 12, 40),
 		rating: 1,
 		commentary: 'Very poor quality, wouldn’t recommend.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 15,
@@ -132,7 +132,7 @@ const population = [
 		pubData: new Date(2024, 2, 23, 14, 10),
 		rating: 4,
 		commentary: 'Well-written and informative, worth reading.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 16,
@@ -141,7 +141,7 @@ const population = [
 		pubData: new Date(2024, 3, 30, 18, 25),
 		rating: 2,
 		commentary: 'Had high hopes but was let down.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 17,
@@ -150,7 +150,7 @@ const population = [
 		pubData: new Date(2024, 4, 15, 10, 35),
 		rating: 5,
 		commentary: 'Top-notch content, very engaging and helpful.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 18,
@@ -159,7 +159,7 @@ const population = [
 		pubData: new Date(2024, 5, 4, 12, 0),
 		rating: 3,
 		commentary: 'Decent but could use more detail.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 19,
@@ -168,7 +168,7 @@ const population = [
 		pubData: new Date(2024, 6, 12, 16, 10),
 		rating: 4,
 		commentary: 'Good insights, though some parts felt rushed.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 20,
@@ -177,7 +177,7 @@ const population = [
 		pubData: new Date(2024, 7, 20, 14, 55),
 		rating: 2,
 		commentary: 'Not worth the time, lacks valuable content.',
-		topic: 'ADVENTURE_BLOG',
+		topic: 'ADVENTURE',
 	},
 	{
 		id: 21,
@@ -186,7 +186,7 @@ const population = [
 		pubData: new Date(2024, 0, 7, 8, 0),
 		rating: 5,
 		commentary: 'Breathtaking views and detailed observations.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 22,
@@ -195,7 +195,7 @@ const population = [
 		pubData: new Date(2024, 1, 14, 11, 30),
 		rating: 4,
 		commentary: 'Very informative, though a bit lengthy.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 23,
@@ -204,7 +204,7 @@ const population = [
 		pubData: new Date(2024, 2, 12, 9, 20),
 		rating: 3,
 		commentary: 'Nice content but could use more visuals.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 24,
@@ -213,7 +213,7 @@ const population = [
 		pubData: new Date(2024, 3, 16, 14, 40),
 		rating: 2,
 		commentary: 'Disappointing, didn’t meet expectations.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 25,
@@ -222,7 +222,7 @@ const population = [
 		pubData: new Date(2024, 4, 10, 12, 15),
 		rating: 5,
 		commentary: 'Exceptional detail and stunning photographs.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 26,
@@ -231,7 +231,7 @@ const population = [
 		pubData: new Date(2024, 5, 8, 13, 25),
 		rating: 4,
 		commentary: 'Great insights, though a bit repetitive.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 27,
@@ -240,7 +240,7 @@ const population = [
 		pubData: new Date(2024, 6, 5, 10, 10),
 		rating: 3,
 		commentary: 'Interesting but lacks depth.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 28,
@@ -249,7 +249,7 @@ const population = [
 		pubData: new Date(2024, 7, 20, 15, 0),
 		rating: 4,
 		commentary: 'Well-written and engaging.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 29,
@@ -258,7 +258,7 @@ const population = [
 		pubData: new Date(2024, 8, 15, 11, 45),
 		rating: 5,
 		commentary: 'Fantastic read with detailed information.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 30,
@@ -267,7 +267,7 @@ const population = [
 		pubData: new Date(2024, 9, 25, 13, 35),
 		rating: 2,
 		commentary: 'Not very engaging or insightful.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 31,
@@ -276,7 +276,7 @@ const population = [
 		pubData: new Date(2024, 10, 10, 9, 0),
 		rating: 3,
 		commentary: 'Good attempt but lacks visual appeal.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 32,
@@ -285,7 +285,7 @@ const population = [
 		pubData: new Date(2024, 11, 20, 14, 30),
 		rating: 4,
 		commentary: 'Very informative, some minor issues.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 33,
@@ -294,7 +294,7 @@ const population = [
 		pubData: new Date(2024, 0, 23, 16, 0),
 		rating: 5,
 		commentary: 'Incredible details and fascinating observations.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 34,
@@ -303,7 +303,7 @@ const population = [
 		pubData: new Date(2024, 1, 18, 11, 15),
 		rating: 2,
 		commentary: 'Fell short of expectations.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 35,
@@ -312,7 +312,7 @@ const population = [
 		pubData: new Date(2024, 2, 28, 12, 25),
 		rating: 4,
 		commentary: 'Good content with minor flaws.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 36,
@@ -321,7 +321,7 @@ const population = [
 		pubData: new Date(2024, 3, 15, 10, 45),
 		rating: 3,
 		commentary: 'Decent but could use more engaging visuals.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 37,
@@ -330,7 +330,7 @@ const population = [
 		pubData: new Date(2024, 4, 8, 15, 30),
 		rating: 5,
 		commentary: 'Absolutely fantastic, couldn’t ask for more.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 38,
@@ -339,7 +339,7 @@ const population = [
 		pubData: new Date(2024, 5, 20, 13, 15),
 		rating: 3,
 		commentary: 'Interesting content but could use more depth.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 39,
@@ -348,7 +348,7 @@ const population = [
 		pubData: new Date(2024, 6, 12, 14, 5),
 		rating: 4,
 		commentary: 'Great article with some minor issues.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 40,
@@ -357,7 +357,7 @@ const population = [
 		pubData: new Date(2024, 7, 25, 16, 20),
 		rating: 2,
 		commentary: 'Disappointing content, didn’t meet the hype.',
-		topic: 'NATURE_BLOG',
+		topic: 'NATURE',
 	},
 	{
 		id: 41,
@@ -366,7 +366,7 @@ const population = [
 		pubData: new Date(2024, 0, 12, 10, 10),
 		rating: 5,
 		commentary: 'Absolutely stylish and trendy outfits showcased.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 42,
@@ -375,7 +375,7 @@ const population = [
 		pubData: new Date(2024, 1, 18, 12, 0),
 		rating: 4,
 		commentary: 'Great fashion tips and inspirations.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 43,
@@ -384,7 +384,7 @@ const population = [
 		pubData: new Date(2024, 2, 25, 14, 30),
 		rating: 3,
 		commentary: 'Good content but lacks variety.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 44,
@@ -393,7 +393,7 @@ const population = [
 		pubData: new Date(2024, 3, 10, 15, 45),
 		rating: 2,
 		commentary: 'Not very engaging or useful.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 45,
@@ -402,7 +402,7 @@ const population = [
 		pubData: new Date(2024, 4, 20, 17, 0),
 		rating: 5,
 		commentary: 'Fantastic insights into the latest fashion trends.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 46,
@@ -411,7 +411,7 @@ const population = [
 		pubData: new Date(2024, 5, 30, 13, 30),
 		rating: 4,
 		commentary: 'Stylish and informative, a must-read.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 47,
@@ -420,7 +420,7 @@ const population = [
 		pubData: new Date(2024, 6, 15, 11, 45),
 		rating: 3,
 		commentary: 'Nice content but could use more depth.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 48,
@@ -429,7 +429,7 @@ const population = [
 		pubData: new Date(2024, 7, 22, 10, 10),
 		rating: 4,
 		commentary: 'Great style tips, though some ideas felt repetitive.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 49,
@@ -438,7 +438,7 @@ const population = [
 		pubData: new Date(2024, 8, 30, 12, 20),
 		rating: 5,
 		commentary: 'Impressive collection of fashion trends and tips.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 50,
@@ -447,7 +447,7 @@ const population = [
 		pubData: new Date(2024, 9, 18, 14, 35),
 		rating: 3,
 		commentary: 'Interesting content but a bit lacking in detail.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 51,
@@ -456,7 +456,7 @@ const population = [
 		pubData: new Date(2024, 10, 12, 16, 0),
 		rating: 2,
 		commentary: 'Didn’t find the content very inspiring.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 52,
@@ -465,7 +465,7 @@ const population = [
 		pubData: new Date(2024, 11, 4, 17, 30),
 		rating: 4,
 		commentary: 'Well-done, but some outfits were outdated.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 53,
@@ -474,7 +474,7 @@ const population = [
 		pubData: new Date(2024, 0, 25, 13, 45),
 		rating: 5,
 		commentary: 'Amazing content with the latest fashion trends.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 54,
@@ -483,7 +483,7 @@ const population = [
 		pubData: new Date(2024, 1, 5, 14, 50),
 		rating: 3,
 		commentary: 'Decent fashion tips but could use more variety.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 55,
@@ -492,7 +492,7 @@ const population = [
 		pubData: new Date(2024, 2, 17, 10, 30),
 		rating: 2,
 		commentary: 'Not very engaging or useful.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 56,
@@ -501,7 +501,7 @@ const population = [
 		pubData: new Date(2024, 3, 23, 11, 55),
 		rating: 4,
 		commentary: 'Good insights, though some sections felt rushed.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 57,
@@ -510,7 +510,7 @@ const population = [
 		pubData: new Date(2024, 4, 12, 12, 10),
 		rating: 5,
 		commentary: 'Fantastic fashion blog with great details and photos.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 58,
@@ -519,7 +519,7 @@ const population = [
 		pubData: new Date(2024, 5, 19, 15, 20),
 		rating: 3,
 		commentary: 'Interesting but could use more examples.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 59,
@@ -528,7 +528,7 @@ const population = [
 		pubData: new Date(2024, 6, 8, 13, 0),
 		rating: 2,
 		commentary: 'Lacks depth and creativity.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 60,
@@ -537,7 +537,7 @@ const population = [
 		pubData: new Date(2024, 7, 30, 14, 50),
 		rating: 5,
 		commentary: 'Incredible fashion ideas and well-presented.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 61,
@@ -546,7 +546,7 @@ const population = [
 		pubData: new Date(2024, 8, 12, 16, 30),
 		rating: 4,
 		commentary: 'Stylish and engaging content.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 62,
@@ -555,7 +555,7 @@ const population = [
 		pubData: new Date(2024, 9, 22, 10, 10),
 		rating: 3,
 		commentary: 'Good content but lacks variety in styles.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 63,
@@ -564,7 +564,7 @@ const population = [
 		pubData: new Date(2024, 10, 11, 15, 35),
 		rating: 2,
 		commentary: 'Not engaging and lacks depth.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 64,
@@ -573,7 +573,7 @@ const population = [
 		pubData: new Date(2024, 11, 18, 12, 25),
 		rating: 4,
 		commentary: 'Very stylish and well-written.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 65,
@@ -582,7 +582,7 @@ const population = [
 		pubData: new Date(2024, 0, 10, 11, 50),
 		rating: 5,
 		commentary: 'Outstanding content with the latest trends.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 66,
@@ -591,7 +591,7 @@ const population = [
 		pubData: new Date(2024, 1, 14, 12, 30),
 		rating: 3,
 		commentary: 'Decent but could use more innovative ideas.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 67,
@@ -600,7 +600,7 @@ const population = [
 		pubData: new Date(2024, 2, 20, 14, 15),
 		rating: 2,
 		commentary: 'Not very engaging or helpful.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 68,
@@ -609,7 +609,7 @@ const population = [
 		pubData: new Date(2024, 3, 25, 16, 40),
 		rating: 4,
 		commentary: 'Good read with interesting fashion ideas.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 69,
@@ -618,7 +618,7 @@ const population = [
 		pubData: new Date(2024, 4, 10, 12, 20),
 		rating: 5,
 		commentary: 'Fantastic fashion tips and insights.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 70,
@@ -627,7 +627,7 @@ const population = [
 		pubData: new Date(2024, 5, 15, 13, 30),
 		rating: 3,
 		commentary: 'Good content but could be more detailed.',
-		topic: 'FASHION_BLOG',
+		topic: 'FASHION',
 	},
 	{
 		id: 77,
@@ -636,7 +636,7 @@ const population = [
 		pubData: new Date(2024, 0, 8, 14, 0),
 		rating: 5,
 		commentary: 'Fantastic take on the latest modern trends!',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 78,
@@ -645,7 +645,7 @@ const population = [
 		pubData: new Date(2024, 1, 12, 9, 30),
 		rating: 4,
 		commentary: 'Great insights into contemporary design.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 79,
@@ -654,7 +654,7 @@ const population = [
 		pubData: new Date(2024, 2, 15, 11, 10),
 		rating: 3,
 		commentary: 'Somewhat informative but lacks depth.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 80,
@@ -663,7 +663,7 @@ const population = [
 		pubData: new Date(2024, 3, 20, 16, 45),
 		rating: 5,
 		commentary: 'A must-read for anyone into modern art.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 81,
@@ -672,7 +672,7 @@ const population = [
 		pubData: new Date(2024, 4, 25, 14, 20),
 		rating: 2,
 		commentary: 'Didn’t live up to the expectations.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 82,
@@ -681,7 +681,7 @@ const population = [
 		pubData: new Date(2024, 5, 2, 12, 15),
 		rating: 4,
 		commentary: 'Very engaging with relevant trends.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 83,
@@ -690,7 +690,7 @@ const population = [
 		pubData: new Date(2024, 6, 18, 10, 55),
 		rating: 3,
 		commentary: 'Could have been more thorough.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 84,
@@ -699,7 +699,7 @@ const population = [
 		pubData: new Date(2024, 7, 21, 9, 0),
 		rating: 5,
 		commentary: 'Exceptional piece on modern innovations.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 85,
@@ -708,7 +708,7 @@ const population = [
 		pubData: new Date(2024, 8, 10, 14, 30),
 		rating: 4,
 		commentary: 'Good but felt repetitive at times.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 86,
@@ -717,7 +717,7 @@ const population = [
 		pubData: new Date(2024, 9, 5, 12, 40),
 		rating: 2,
 		commentary: 'Not what I expected, too generic.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 87,
@@ -726,7 +726,7 @@ const population = [
 		pubData: new Date(2024, 10, 13, 16, 0),
 		rating: 5,
 		commentary: 'Outstanding! Full of fresh modern ideas.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 88,
@@ -735,7 +735,7 @@ const population = [
 		pubData: new Date(2024, 11, 1, 15, 45),
 		rating: 3,
 		commentary: 'Decent but lacks originality.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 89,
@@ -744,7 +744,7 @@ const population = [
 		pubData: new Date(2024, 0, 27, 11, 20),
 		rating: 4,
 		commentary: 'Modern and unique content!',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 90,
@@ -753,7 +753,7 @@ const population = [
 		pubData: new Date(2024, 1, 15, 9, 35),
 		rating: 5,
 		commentary: 'Top-notch article on modern designs.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 91,
@@ -762,7 +762,7 @@ const population = [
 		pubData: new Date(2024, 2, 11, 14, 55),
 		rating: 4,
 		commentary: 'Very detailed and well-researched.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 92,
@@ -771,7 +771,7 @@ const population = [
 		pubData: new Date(2024, 3, 20, 16, 50),
 		rating: 2,
 		commentary: 'Did not meet my expectations.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 93,
@@ -780,7 +780,7 @@ const population = [
 		pubData: new Date(2024, 4, 18, 12, 20),
 		rating: 3,
 		commentary: 'Informative but lacked new insights.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 94,
@@ -789,7 +789,7 @@ const population = [
 		pubData: new Date(2024, 5, 24, 15, 10),
 		rating: 5,
 		commentary: 'Incredibly engaging and thorough.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 95,
@@ -798,7 +798,7 @@ const population = [
 		pubData: new Date(2024, 6, 2, 13, 35),
 		rating: 4,
 		commentary: 'Loved the fresh perspective!',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 	{
 		id: 96,
@@ -807,7 +807,7 @@ const population = [
 		pubData: new Date(2024, 7, 17, 10, 45),
 		rating: 3,
 		commentary: 'Good read, but needed more depth.',
-		topic: 'MODERN_BLOG',
+		topic: 'MODERN',
 	},
 ];
 
