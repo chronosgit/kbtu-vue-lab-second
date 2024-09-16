@@ -1,4 +1,4 @@
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watchEffect } from 'vue';
 import { useRoute } from 'vue-router';
 
 const useCategories = () => {
@@ -21,7 +21,7 @@ const useCategories = () => {
 		MODERN: 'linear-gradient(to right, #68e574, #7ecd86)',
 	};
 
-	onMounted(() => {
+	watchEffect(() => {
 		const category = route.fullPath.split('/')[2].toUpperCase();
 		prevActiveCategory.value = activeCategory;
 
