@@ -2,16 +2,12 @@
 	import { computed } from 'vue';
 
 	const { category } = defineProps(['category']);
-
-	const categoryValidText = computed(() => {
-		return category.replace('_', ' ');
-	});
 </script>
 
 <template>
 	<div class="category-box">
 		<p class="category-name">
-			{{ categoryValidText }}
+			{{ category }}
 		</p>
 	</div>
 </template>

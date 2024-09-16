@@ -1,7 +1,16 @@
 <script setup>
+	import { inject } from 'vue';
 	import Heading from './components/Heading.vue';
 	import Categories from './components/Categories.vue';
 	import Contacts from './components/Contacts.vue';
+
+	const categoriesContext = inject('categoriesContext');
+
+	if (!categoriesContext) {
+		throw Error('Menu must consume a categories context');
+	}
+
+	const { categories, categoriesGradients } = categoriesContext;
 </script>
 
 <template>
@@ -9,7 +18,7 @@
 		<Heading />
 
 		<div class="menu-content-box">
-			<Categories />
+			<Categories :categories :categoriesGradients />
 
 			<div class="contacts_wrapper">
 				<Contacts />
