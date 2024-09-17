@@ -1,4 +1,4 @@
-const population = [
+const mockUsers = [
 	{
 		id: 1,
 		personName: 'Alice Johnson',
@@ -811,4 +811,4 @@ const population = [
 	},
 ];
 
-export default population;
+export default mockUsers;

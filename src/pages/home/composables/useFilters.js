@@ -1,7 +1,6 @@
 import { ref } from 'vue';
 
 const useFilters = () => {
-	// values are readable names of the filters
 	const filters = { BY_RATING: 'rating', BY_DATE_TIME: 'time' };
 	const activeFilter = ref(null);
 	const prevActiveFilter = ref(null);

@@ -1,10 +1,10 @@
-import { ref, watchEffect } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 const useCategories = () => {
+	const router = useRouter();
 	const route = useRoute();
 
-	const prevActiveCategory = ref(null);
 	const activeCategory = ref(null);
 
 	const categories = {
@@ -21,20 +21,22 @@ const useCategories = () => {
 		MODERN: 'linear-gradient(to right, #68e574, #7ecd86)',
 	};
 
-	watchEffect(() => {
-		const category = route.fullPath.split('/')[2].toUpperCase();
-		prevActiveCategory.value = activeCategory;
+	watch(
+		() => route.fullPath,
+		() => {
+			const categoryInPath = route.fullPath.split('/')[2].toUpperCase();
 
-		if (categories.hasOwnProperty(category)) {
-			activeCategory.value = category;
-		} else {
-			activeCategory.value = categories[Object.keys(categories)[0]];
-		}
-	});
+			if (categories.hasOwnProperty(categoryInPath)) {
+				activeCategory.value = categoryInPath.toLowerCase();
+			} else {
+				router.push('/not-found');
+			}
+		},
+		{ immediate: true }
+	);
 
 	return {
 		categories,
-		prevActiveCategory,
 		activeCategory,
 		categoriesGradients,
 	};

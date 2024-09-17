@@ -4,20 +4,20 @@
 	import Menu from '@modules/menu/Menu.vue';
 	import Screen from '@modules/screen/Screen.vue';
 	import useClickAway from '@/common/composables/useClickAway';
-	import usePeople from './composables/usePeople';
+	import useUsers from './composables/useUsers';
 
 	const menu = useTemplateRef('menu');
 
 	const { isElActive, openEl } = useClickAway(menu);
 	const {
-		people,
+		users,
 		filters,
 		activeFilter,
 		onFilterChange,
 		categories,
 		activeCategory,
 		categoriesGradients,
-	} = usePeople();
+	} = useUsers();
 
 	provide('openMenu', openEl);
 	provide('filtersContext', {
@@ -25,7 +25,7 @@
 		activeFilter,
 		onFilterChange,
 	});
-	provide('peopleContext', { people });
+	provide('usersContext', { users });
 	provide('categoriesContext', {
 		categories,
 		activeCategory,
