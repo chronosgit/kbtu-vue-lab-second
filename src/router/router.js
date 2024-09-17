@@ -8,8 +8,12 @@ const routes = [
 		component: Home,
 	},
 	{
-		path: '/:pathMatch(.*)*',
+		path: '/not-found',
 		component: NotFound,
+	},
+	{
+		path: '/:pathMatch(.*)*',
+		redirect: '/not-found',
 	},
 ];
 
