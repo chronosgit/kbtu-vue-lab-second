@@ -86,6 +86,8 @@ const useUsers = () => {
 
 	const toNextPage = () => {
 		curPage.value++;
+
+		console.log(curPage.value);
 	};
 
 	watch(
