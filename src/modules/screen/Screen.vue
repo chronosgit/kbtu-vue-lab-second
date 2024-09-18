@@ -8,14 +8,21 @@
 	const filtersContext = inject('filtersContext');
 	const categoriesContext = inject('categoriesContext');
 	const usersContext = inject('usersContext');
+	const paginationContext = inject('paginationContext');
 
-	if (!filtersContext || !categoriesContext || !usersContext) {
+	if (
+		!filtersContext ||
+		!categoriesContext ||
+		!usersContext ||
+		!paginationContext
+	) {
 		throw Error('Screen must consume necessary contexts');
 	}
 
 	const { filters, activeFilter, onFilterChange } = filtersContext;
 	const { activeCategory } = categoriesContext;
-	const { users } = usersContext;
+	const { users, likeUser } = usersContext;
+	const { totalPages, curPage } = paginationContext;
 </script>
 
 <template>
@@ -34,10 +41,12 @@
 					:active-filter="activeFilter"
 					@filter-change="onFilterChange"
 				/>
+
+				<!-- pagination -->
 			</div>
 
 			<div class="user-cards-wrapper">
-				<UserCards :users="users" />
+				<UserCards :users :onUserLikeButtonClick="likeUser" />
 			</div>
 		</main>
 	</section>
