@@ -1,9 +1,10 @@
 <script setup>
 	import { inject } from 'vue';
+	import UserCards from '@modules/user_cards/UserCards.vue';
 	import Filter from '@modules/filter/Filter.vue';
 	import Date from './components/Date.vue';
 	import Topic from './components/Topic.vue';
-	import UserCards from '../user_cards/UserCards.vue';
+	import Navigator from './components/Navigator.vue';
 
 	const filtersContext = inject('filtersContext');
 	const categoriesContext = inject('categoriesContext');
@@ -22,7 +23,8 @@
 	const { filters, activeFilter, onFilterChange } = filtersContext;
 	const { activeCategory } = categoriesContext;
 	const { users, likeUser } = usersContext;
-	const { totalPages, curPage } = paginationContext;
+	const { totalPages, curPage, isNextPageExist, toNextPage } =
+		paginationContext;
 </script>
 
 <template>
@@ -36,13 +38,20 @@
 				<!-- Make logical -->
 				<Topic :topic="activeCategory" />
 
-				<Filter
-					:filters
-					:active-filter="activeFilter"
-					@filter-change="onFilterChange"
-				/>
+				<div class="right">
+					<Filter
+						:filters
+						:active-filter="activeFilter"
+						@filter-change="onFilterChange"
+					/>
 
-				<!-- pagination -->
+					<Navigator
+						:cur-page="curPage"
+						:total-pages="totalPages"
+						:is-next-page-exist="isNextPageExist"
+						@next-page="toNextPage"
+					/>
+				</div>
 			</div>
 
 			<div class="user-cards-wrapper">
@@ -71,7 +80,14 @@
 	.features {
 		margin-bottom: 3rem;
 		display: flex;
+		justify-content: space-between;
 		align-items: center;
 		gap: 1rem;
+	}
+
+	.features .right {
+		display: flex;
+		align-items: center;
+		gap: 4rem;
 	}
 </style>
