@@ -1,65 +1,39 @@
 <script setup>
-	import getReadableDate from '@/common/utils/getReadableDate';
-	import { computed } from 'vue';
+	import { computed, provide } from 'vue';
+	import MetaData from './components/MetaData.vue';
+	import getRelativeDateTime from '@/common/utils/getRelativeDateTime';
 
-	// const { card } = defineProps(['card']);
+	const { user, onUserLikeButtonClick: onLikeButtonClick } = defineProps([
+		'user',
+		'onUserLikeButtonClick',
+	]);
 
-	// temp
-	const card = {
-		id: 1,
-		personName: 'Alice Johnson',
-		avatar: '/src/assets/images/avatars/gojo.webp',
-		pubData: new Date(2024, 0, 15, 8, 30),
-		rating: 5,
-		commentary: 'Absolutely fantastic experience! Highly recommend.',
-		topic: 'ADVENTURE',
-	};
+	const formattedDate = computed(() => getRelativeDateTime(user.pubData));
 
-	const formattedDate = computed(() => getReadableDate(card.pubData));
+	provide('userCardContext', {
+		personName: user.personName,
+		avatar: user.avatar,
+		dateTime: formattedDate,
+	});
 </script>
 
 <template>
 	<div class="card">
-		<div class="meta">
-			<div class="creds">
-				<p class="text">{{ card.personName }}</p>
+		<MetaData />
 
-				<p class="text">{{ formattedDate }}</p>
-			</div>
+		<p class="text commentary">{{ user.commentary }}</p>
 
-			<div class="meta_col_2">
-				<div class="stats">
-					<p class="text">Rating</p>
-
-					<!-- stars -->
-				</div>
-
-				<div class="avatar-wrapper">
-					<img :src="card.avatar" alt="" />
-				</div>
-			</div>
-		</div>
+		<button class="text btn-like" @click="() => onLikeButtonClick(user.id)">
+			Like
+		</button>
 	</div>
 </template>
 
 <style scoped>
 	.card {
 		padding: 0.5rem;
-		background-color: #5bb9cd;
-		border-radius: 0.5rem;
-	}
-
-	.meta {
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.creds {
-		padding: 0.5rem;
 		display: grid;
-		grid-template-rows: 1fr 1fr;
-		gap: 1rem;
-		background-color: #73c3d3;
+		background-color: #5bb9cd;
 		border-radius: 0.5rem;
 	}
 
@@ -70,17 +44,19 @@
 		color: white;
 	}
 
-	.meta_col_2 {
-		display: flex;
-		gap: 1rem;
+	.commentary {
+		padding-inline: 0.5rem;
+		margin-top: 0.5rem;
 	}
 
-	.stats {
-	}
-
-	.avatar-wrapper {
-		width: 100%;
-		max-width: 5rem;
-		max-height: 10rem;
+	.btn-like {
+		max-width: max-content;
+		padding: 0.2rem 1rem;
+		justify-self: flex-end;
+		font-family: inherit;
+		text-transform: uppercase;
+		background-color: #43ef27;
+		border: none;
+		border-radius: 0.5rem;
 	}
 </style>

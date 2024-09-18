@@ -11,6 +11,11 @@
 	const { isElActive, openEl } = useClickAway(menu);
 	const {
 		users,
+		likeUser,
+		totalPages,
+		curPage,
+		isNextPageExist,
+		toNextPage,
 		filters,
 		activeFilter,
 		onFilterChange,
@@ -20,12 +25,18 @@
 	} = useUsers();
 
 	provide('openMenu', openEl);
+	provide('usersContext', { users, likeUser });
+	provide('paginationContext', {
+		totalPages,
+		curPage,
+		isNextPageExist,
+		toNextPage,
+	});
 	provide('filtersContext', {
 		filters,
 		activeFilter,
 		onFilterChange,
 	});
-	provide('usersContext', { users });
 	provide('categoriesContext', {
 		categories,
 		activeCategory,
