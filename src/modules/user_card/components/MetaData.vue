@@ -9,19 +9,17 @@
 		throw new Error('MetaData must consume the userCardContext');
 	}
 
-	const { avatar } = userCardContext;
+	const { avatar, rating, personName, dateTime } = userCardContext;
 </script>
 
 <template>
 	<div class="meta">
-		<Creds />
+		<Creds :date-time :person-name />
 
-		<div class="meta_col_2">
-			<Stats />
+		<Stats :rating />
 
-			<div class="avatar-wrapper">
-				<img :src="avatar" alt="" />
-			</div>
+		<div class="avatar-wrapper">
+			<img :src="avatar" alt="" />
 		</div>
 	</div>
 </template>
@@ -37,11 +35,6 @@
 		font-weight: 600;
 		letter-spacing: 1px;
 		color: white;
-	}
-
-	.meta_col_2 {
-		display: flex;
-		gap: 1rem;
 	}
 
 	.avatar-wrapper {

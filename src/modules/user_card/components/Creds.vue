@@ -1,13 +1,5 @@
 <script setup>
-	import { inject } from 'vue';
-
-	const userCardContext = inject('userCardContext');
-
-	if (!userCardContext) {
-		throw new Error('MetaData must consume the userCardContext');
-	}
-
-	const { personName, dateTime } = userCardContext;
+	const { personName, dateTime } = defineProps(['personName', 'dateTime']);
 </script>
 
 <template>
