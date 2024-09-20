@@ -9,15 +9,15 @@
 		throw new Error('MetaData must consume the userCardContext');
 	}
 
-	const { avatar } = userCardContext;
+	const { avatar, rating, personName, dateTime } = userCardContext;
 </script>
 
 <template>
 	<div class="meta">
-		<Creds />
+		<Creds :date-time :person-name />
 
 		<div class="meta_col_2">
-			<Stats />
+			<Stats :rating />
 
 			<div class="avatar-wrapper">
 				<img :src="avatar" alt="" />

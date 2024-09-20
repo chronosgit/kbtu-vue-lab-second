@@ -13,6 +13,7 @@
 	provide('userCardContext', {
 		personName: user.personName,
 		avatar: user.avatar,
+		rating: user.rating,
 		dateTime: formattedDate,
 	});
 </script>

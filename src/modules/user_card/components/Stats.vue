@@ -1,10 +1,12 @@
-<script setup></script>
+<script setup>
+	const { rating } = defineProps(['rating']);
+</script>
 
 <template>
 	<div class="stats">
 		<p class="text">Rating</p>
 
-		<!-- stars -->
+		<p>{{ rating }}</p>
 	</div>
 </template>
 
