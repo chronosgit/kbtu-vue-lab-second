@@ -1,4 +1,4 @@
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, onMounted, reactive, ref, toRefs, watch } from 'vue';
 import { filter, orderBy } from 'lodash';
 import useFilters from './useFilters';
 import useCategories from './useCategories';
@@ -74,20 +74,17 @@ const useUsers = () => {
 			throw Error('You must provide valid userId');
 		}
 
-		const user = filteredUsers.value.filter((u) => u.id === userId)[0];
+		const user = displayedUsers.value.filter((u) => u.id === userId)[0];
 
 		if (!user) {
 			throw Error(`User with id: ${userId} doesn't exist`);
 		}
 
-		// mock like logic
-		console.log(user);
+		console.log('Liked');
 	};
 
 	const toNextPage = () => {
 		curPage.value++;
-
-		console.log(curPage.value);
 	};
 
 	watch(
@@ -98,7 +95,7 @@ const useUsers = () => {
 		{ immediate: true }
 	);
 
-	watch(filteredUsers, () => {
+	watch(filteredUsers, (n, o) => {
 		resetPagination();
 
 		displayedUsers.value = getPaginatedUsers();
