@@ -7,6 +7,8 @@
 		user: Object,
 	});
 
+	const emit = defineEmits(['user-like']);
+
 	const formattedDate = computed(() =>
 		getRelativeDateTime(props.user?.pubData)
 	);
@@ -21,7 +23,9 @@
 
 		<p class="text commentary">{{ props.user?.commentary }}</p>
 
-		<button class="text btn-like" @click="console.log('Like')">Like</button>
+		<button class="text btn-like" @click="emit('user-like', props.user?.id)">
+			Like
+		</button>
 	</div>
 </template>
 
