@@ -47,8 +47,11 @@
 				:filters="uFilters?.possibleFilters"
 				:active-filter="uFilters?.activeFilter"
 				:users="uUsers?.users"
+				:cur-page="uUsers?.curPage"
+				:total-pages="uUsers?.totalPages"
 				@filter-change="uFilters?.onFilterChange"
 				@user-like="uUsers?.likeUser"
+				@page-next="uUsers?.toNextPage"
 			/>
 		</div>
 	</div>
