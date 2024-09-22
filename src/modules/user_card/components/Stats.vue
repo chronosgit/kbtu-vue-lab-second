@@ -1,20 +1,23 @@
 <script setup>
 	import { computed } from 'vue';
-	import IconYellowStar from '@/common/components/IconYellowStar.vue';
-	import IconEmptyStar from '@/common/components/IconEmptyStar.vue';
+	// import IconYellowStar from '@/common/components/IconYellowStar.vue';
+	// import IconEmptyStar from '@/common/components/IconEmptyStar.vue';
 
 	const props = defineProps({
 		rating: Number,
 	});
 
-	const numOfEmptyStars = computed(() => 5 - props.rating);
+	// const numOfEmptyStars = computed(() => 5 - props.rating);
 </script>
 
 <template>
 	<div class="stats">
 		<p class="text">Rating</p>
 
-		<div class="stars">
+		<!-- Temporary -->
+		<p class="text">{{ props.rating }}</p>
+
+		<!-- <div class="stars">
 			<template v-for="_ in props.rating">
 				<div class="star-wrapper">
 					<IconYellowStar />
@@ -26,7 +29,7 @@
 					<IconEmptyStar />
 				</div>
 			</template>
-		</div>
+		</div> -->
 	</div>
 </template>
 

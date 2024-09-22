@@ -12,11 +12,10 @@
 		users: Object,
 	});
 
-	const emit = defineEmits(['filter-change']);
+	const emit = defineEmits(['filter-change', 'user-like']);
 
-	const onFilterChange = (filter) => {
-		emit('filter-change', filter);
-	};
+	const onUserLike = (userId) => emit('user-like', userId);
+	const onFilterChange = (filter) => emit('filter-change', filter);
 </script>
 
 <template>
@@ -46,7 +45,7 @@
 			</div>
 
 			<div class="user-cards-wrapper">
-				<UserCards :users="props.users" />
+				<UserCards :users="props.users" @user-like="onUserLike" />
 			</div>
 		</main>
 	</section>

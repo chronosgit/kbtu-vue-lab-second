@@ -4,12 +4,16 @@
 	const props = defineProps({
 		users: Object,
 	});
+
+	const emit = defineEmits(['user-like']);
+
+	const onUserLike = (userId) => emit('user-like', userId);
 </script>
 
 <template>
 	<div class="user-cards">
 		<div v-for="u in props.users?.value" :key="u.id" class="card-wrapper">
-			<UserCard :user="u" />
+			<UserCard :user="u" @user-like="onUserLike" />
 		</div>
 	</div>
 </template>
