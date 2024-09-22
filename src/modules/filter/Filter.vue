@@ -15,18 +15,24 @@
 	const uClickAway = useClickAway(dropdownAnchor);
 
 	const dropDownComputedStyle = computed(() => ({
-		maxHeight: uClickAway.isElActive.value ? '10rem' : 0,
+		maxHeight: uClickAway?.isElActive.value ? '10rem' : 0,
 	}));
+
+	const onFilterClick = (filter) => {
+		uClickAway?.closeEl();
+
+		emit('filter-change', filter);
+	};
 </script>
 
 <template>
-	<div ref="dropdown-anchor" class="filter-box" @click="uClickAway.openEl">
+	<div ref="dropdown-anchor" class="filter-box" @click.stop="uClickAway.openEl">
 		<div class="icon-filter-wrapper">
 			<IconFilter />
 		</div>
 
-		<p v-show="activeFilter" class="filter-item">
-			{{ props.activeFilter?.value || 'NO FILTER' }}
+		<p class="filter-item">
+			{{ props.activeFilter }}
 		</p>
 
 		<div class="icon-caret-down-wrapper">
@@ -35,13 +41,15 @@
 
 		<!-- Absolute toggleable dropdown -->
 		<div class="dropdown" :style="dropDownComputedStyle">
-			<p
-				v-for="(fName, fKey) in props.filters"
-				class="filter-item dropdown-item"
-				@click="emit('filter-change', fKey)"
-			>
-				{{ fName }}
-			</p>
+			<template v-for="(fName, fKey) in props.filters">
+				<p
+					v-if="fKey !== 'NO'"
+					class="filter-item dropdown-item"
+					@click.stop="onFilterClick(fKey)"
+				>
+					{{ fName }}
+				</p>
+			</template>
 		</div>
 	</div>
 </template>
@@ -84,15 +92,18 @@
 
 	.dropdown {
 		position: absolute;
-		top: 0;
 		right: 0;
+		bottom: 0;
 		left: 0;
-		transform: translateY(2.8rem);
+		transform: translateY(100%);
+
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: 0.5rem;
+
 		background-color: #eefcf7;
-		transition: all 0.3s ease;
+		background-color: rgba(0, 0, 0, 0.5);
+		transition: max-height 0.3s ease;
 		overflow-y: auto;
 	}
 
