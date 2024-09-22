@@ -1,6 +1,10 @@
 import { ref, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 const useFilters = () => {
+	const router = useRouter();
+	const route = useRoute();
+
 	const activeFilter = ref(null);
 
 	const possibleFilters = {
@@ -15,8 +19,27 @@ const useFilters = () => {
 	const onFilterChange = (newFilter) => {
 		if (!isFilterValid(newFilter)) return;
 
-		activeFilter.value = newFilter;
+		router.push({
+			path: route.path,
+			query: {
+				filter: newFilter,
+			},
+		});
 	};
+
+	watch(
+		() => route.query,
+		(q) => {
+			const filterQuery = q['filter']?.toUpperCase();
+
+			if (!isFilterValid(filterQuery)) return;
+
+			activeFilter.value = filterQuery;
+		},
+		{
+			immediate: true,
+		}
+	);
 
 	return {
 		possibleFilters,
