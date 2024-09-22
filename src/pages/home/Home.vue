@@ -48,6 +48,7 @@
 				:active-filter="uFilters?.activeFilter"
 				:users="uUsers?.users"
 				@filter-change="uFilters?.onFilterChange"
+				@user-like="uUsers?.likeUser"
 			/>
 		</div>
 	</div>
