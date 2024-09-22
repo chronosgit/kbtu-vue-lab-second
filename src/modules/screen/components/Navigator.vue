@@ -3,20 +3,24 @@
 	import { computed } from 'vue';
 
 	const props = defineProps({
-		totalPages: Object,
 		curPage: Object,
-		isNextPageExist: Object,
-		onNextPage: Function,
+		totalPages: Object,
 	});
+
+	const emit = defineEmits(['page-next']);
 
 	const navigationInfo = computed(
 		() => `${props.curPage.value}/${props.totalPages.value}`
 	);
 
-	const onArrowClick = () => {
-		if (!props.isNextPageExist) return;
+	const hasNextPage = computed(() => {
+		return props.curPage.value + 1 <= props.totalPages.value;
+	});
 
-		props.onNextPage();
+	const onArrowClick = () => {
+		if (!hasNextPage.value) return;
+
+		emit('page-next');
 	};
 </script>
 

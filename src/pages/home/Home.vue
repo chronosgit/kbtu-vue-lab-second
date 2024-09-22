@@ -13,14 +13,7 @@
 
 	const uCategories = useCategories();
 	const uFilters = useFilters();
-
 	const uUsers = useUsers(uCategories?.activeCategory, uFilters?.activeFilter);
-	// provide('paginationCtx', {
-	// 	totalPages: usersCom?.totalPages,
-	// 	curPage: usersCom?.curPage,
-	// 	isNextPageExist: usersCom?.isNextPageExist,
-	// 	toNextPage: usersCom?.toNextPage,
-	// });
 
 	const menuComputedStyle = computed(() => ({
 		left: uClickAway?.isElActive?.value ? 0 : '-100%',
@@ -47,8 +40,11 @@
 				:filters="uFilters?.possibleFilters"
 				:active-filter="uFilters?.activeFilter"
 				:users="uUsers?.users"
+				:cur-page="uUsers?.curPage"
+				:total-pages="uUsers?.totalPages"
 				@filter-change="uFilters?.onFilterChange"
 				@user-like="uUsers?.likeUser"
+				@page-next="uUsers?.toNextPage"
 			/>
 		</div>
 	</div>

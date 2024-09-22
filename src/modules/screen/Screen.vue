@@ -10,12 +10,15 @@
 		filters: Object,
 		activeFilter: Object,
 		users: Object,
+		curPage: Object,
+		totalPages: Object,
 	});
 
-	const emit = defineEmits(['filter-change', 'user-like']);
+	const emit = defineEmits(['filter-change', 'user-like', 'page-next']);
 
 	const onUserLike = (userId) => emit('user-like', userId);
 	const onFilterChange = (filter) => emit('filter-change', filter);
+	const onPageNext = () => emit('page-next');
 </script>
 
 <template>
@@ -35,12 +38,11 @@
 						@filter-change="onFilterChange"
 					/>
 
-					<!-- <Navigator
-						:cur-page="paginationContext?.curPage"
-						:total-pages="paginationContext?.totalPages"
-						:is-next-page-exist="paginationContext?.isNextPageExist"
-						@next-page="paginationContext?.toNextPage"
-					/> -->
+					<Navigator
+						:cur-page="props.curPage"
+						:total-pages="props.totalPages"
+						@page-next="onPageNext"
+					/>
 				</div>
 			</div>
 

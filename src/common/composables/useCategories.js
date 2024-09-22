@@ -22,26 +22,21 @@ const useCategories = () => {
 	};
 
 	const isCategoryValid = (category) => {
-		return !Object.keys(possibleCategories).includes(category);
+		return Object.keys(possibleCategories).includes(category.toUpperCase());
 	};
 
 	const isPathValid = computed(() => {
-		const path = route.fullPath;
-		const pathParts = path.split('/');
+		const category = route.params['topic'];
 
-		if (!pathParts[1] || !pathParts[2]) return false;
-		if (pathParts[1] !== 'topic') return false;
-		if (!isCategoryValid(pathParts[2])) return false;
-
-		return true;
+		return isCategoryValid(category);
 	});
 
 	watch(
-		() => route.fullPath,
-		(newPath) => {
+		() => route.params,
+		(p) => {
 			if (!isPathValid.value) router.push('/not-found');
 
-			const newCategory = newPath.split('/')[2];
+			const newCategory = p['topic'];
 
 			activeCategory.value = newCategory.toUpperCase();
 		},

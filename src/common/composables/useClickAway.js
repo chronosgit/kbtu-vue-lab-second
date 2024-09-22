@@ -3,13 +3,9 @@ import { onMounted, onUnmounted, ref } from 'vue';
 const useClickAway = (el) => {
 	const isElActive = ref(false);
 
-	const openEl = () => {
-		isElActive.value = true;
-	};
+	const openEl = () => (isElActive.value = true);
 
-	const closeEl = () => {
-		isElActive.value = false;
-	};
+	const closeEl = () => (isElActive.value = false);
 
 	const onDocumentClick = (e) => {
 		if (el.value && !el.value.contains(e.target)) {
@@ -25,7 +21,7 @@ const useClickAway = (el) => {
 		document.removeEventListener('click', onDocumentClick);
 	});
 
-	return { isElActive, openEl };
+	return { isElActive, openEl, closeEl };
 };
 
 export default useClickAway;
