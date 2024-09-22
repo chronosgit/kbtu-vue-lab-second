@@ -3,6 +3,7 @@ import { filter, orderBy } from 'lodash';
 import mockUsers from '@common/utils/mockUsers';
 
 const useUsers = (activeCategory, activeFilter) => {
+	// vertical to low pipeline; the lowest one is returned as 'users'
 	const categorizedUsers = ref([]);
 	const filteredUsers = ref([]);
 
@@ -30,6 +31,22 @@ const useUsers = (activeCategory, activeFilter) => {
 		return filteredUsers;
 	};
 
+	const likeUser = (userId) => {
+		const likedUser = filteredUsers.value.find((u) => u.id === userId);
+
+		if (likedUser == null) {
+			console.error(`User with id: ${userId} doesn't exist`);
+			return;
+		}
+
+		if (typeof likedUser.rating !== 'number') {
+			console.error(`User with id: ${userId} doesn't have a rating`);
+			return;
+		}
+
+		likedUser.rating++;
+	};
+
 	watch(
 		activeFilter,
 		(f) => {
@@ -51,7 +68,7 @@ const useUsers = (activeCategory, activeFilter) => {
 		{ immediate: true }
 	);
 
-	return { users: filteredUsers };
+	return { users: filteredUsers, likeUser };
 };
 
 export default useUsers;
