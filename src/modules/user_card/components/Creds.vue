@@ -1,12 +1,15 @@
 <script setup>
-	const { personName, dateTime } = defineProps(['personName', 'dateTime']);
+	const props = defineProps({
+		personName: String,
+		dateTime: String,
+	});
 </script>
 
 <template>
 	<div class="creds">
-		<p class="text">{{ personName }}</p>
+		<p class="text">{{ props.personName }}</p>
 
-		<p class="text">{{ dateTime }}</p>
+		<p class="text">{{ props.dateTime }}</p>
 	</div>
 </template>
 

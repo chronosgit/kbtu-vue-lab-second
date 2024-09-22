@@ -3,23 +3,18 @@
 	import Creds from './Creds.vue';
 	import Stats from './Stats.vue';
 
-	const userCardContext = inject('userCardContext');
-
-	if (!userCardContext) {
-		throw new Error('MetaData must consume the userCardContext');
-	}
-
-	const { avatar, rating, personName, dateTime } = userCardContext;
+	const user = inject('userCtx');
+	const dateTime = inject('dateTime');
 </script>
 
 <template>
 	<div class="meta">
-		<Creds :date-time :person-name />
+		<Creds :person-name="user?.personName" :date-time="dateTime" />
 
-		<Stats :rating />
+		<Stats :rating="user?.rating" />
 
 		<div class="avatar-wrapper">
-			<img :src="avatar" alt="" />
+			<img :src="user?.avatar" alt="" />
 		</div>
 	</div>
 </template>

@@ -3,30 +3,25 @@
 	import MetaData from './components/MetaData.vue';
 	import getRelativeDateTime from '@/common/utils/getRelativeDateTime';
 
-	const { user, onUserLikeButtonClick: onLikeButtonClick } = defineProps([
-		'user',
-		'onUserLikeButtonClick',
-	]);
-
-	const formattedDate = computed(() => getRelativeDateTime(user.pubData));
-
-	provide('userCardContext', {
-		personName: user.personName,
-		avatar: user.avatar,
-		rating: user.rating,
-		dateTime: formattedDate,
+	const props = defineProps({
+		user: Object,
 	});
+
+	const formattedDate = computed(() =>
+		getRelativeDateTime(props.user?.pubData)
+	);
+
+	provide('userCtx', props.user);
+	provide('dateTime', formattedDate);
 </script>
 
 <template>
 	<div class="card">
 		<MetaData />
 
-		<p class="text commentary">{{ user.commentary }}</p>
+		<p class="text commentary">{{ props.user?.commentary }}</p>
 
-		<button class="text btn-like" @click="() => onLikeButtonClick(user.id)">
-			Like
-		</button>
+		<button class="text btn-like" @click="console.log('Like')">Like</button>
 	</div>
 </template>
 
