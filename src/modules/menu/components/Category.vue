@@ -1,20 +1,21 @@
 <script setup>
-	import { computed } from 'vue';
 	import { useRouter } from 'vue-router';
 
 	const router = useRouter();
 
-	const { category } = defineProps(['category']);
+	const props = defineProps({
+		category: String,
+	});
 
 	const navigateTo = () => {
-		router.push(`/topic/${category.toLowerCase()}`);
+		router.push(`/topic/${props.category.toLowerCase()}`);
 	};
 </script>
 
 <template>
 	<div class="category-box" @click="navigateTo">
 		<p class="category-name">
-			{{ category }}
+			{{ props.category }}
 		</p>
 	</div>
 </template>

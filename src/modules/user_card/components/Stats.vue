@@ -3,9 +3,11 @@
 	import IconYellowStar from '@/common/components/IconYellowStar.vue';
 	import IconEmptyStar from '@/common/components/IconEmptyStar.vue';
 
-	const { rating } = defineProps(['rating']);
+	const props = defineProps({
+		rating: Number,
+	});
 
-	const numOfEmptyStars = computed(() => 5 - rating);
+	const numOfEmptyStars = computed(() => 5 - props.rating);
 </script>
 
 <template>
@@ -13,7 +15,7 @@
 		<p class="text">Rating</p>
 
 		<div class="stars">
-			<template v-for="_ in rating">
+			<template v-for="_ in props.rating">
 				<div class="star-wrapper">
 					<IconYellowStar />
 				</div>

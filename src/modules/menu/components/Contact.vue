@@ -1,13 +1,13 @@
 <script setup>
 	import { computed } from 'vue';
 
-	const { contactType, contactValue } = defineProps([
-		'contact-type',
-		'contact-value',
-	]);
+	const props = defineProps({
+		contactType: String,
+		contactValue: String,
+	});
 
 	const contactMessage = computed(() => {
-		return `${contactType}: `.toUpperCase() + `${contactValue}`;
+		return `${props.contactType}: `.toUpperCase() + `${props.contactValue}`;
 	});
 </script>
 

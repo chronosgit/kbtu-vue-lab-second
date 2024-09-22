@@ -1,16 +1,15 @@
 <script setup>
 	import UserCard from '@modules/user_card/UserCard.vue';
 
-	const { users, onUserLikeButtonClick } = defineProps([
-		'users',
-		'onUserLikeButtonClick',
-	]);
+	const props = defineProps({
+		users: Object,
+	});
 </script>
 
 <template>
 	<div class="user-cards">
-		<div v-for="u in users" class="card-wrapper">
-			<UserCard :user="u" @user-like-button-click="onUserLikeButtonClick" />
+		<div v-for="u in props.users?.value" :key="u.id" class="card-wrapper">
+			<UserCard :user="u" />
 		</div>
 	</div>
 </template>

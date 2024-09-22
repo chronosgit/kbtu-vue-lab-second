@@ -4,29 +4,30 @@
 	import IconCaretDown from '@/common/components/IconCaretDown.vue';
 	import useClickAway from '@/common/composables/useClickAway';
 
-	const { filters, activeFilter, onFilterChange } = defineProps([
-		'filters',
-		'active-filter',
-		'on-filter-change',
-	]);
+	// emit filter change
+	const props = defineProps({
+		filters: Object,
+		activeFilter: Object,
+	});
+	const emit = defineEmits(['filter-change']);
 
 	const dropdownAnchor = useTemplateRef('dropdown-anchor');
-
-	const { isElActive: isDropDownOpen, openEl: openDropDown } =
-		useClickAway(dropdownAnchor);
+	const uClickAway = useClickAway(dropdownAnchor);
 
 	const dropDownComputedStyle = computed(() => ({
-		maxHeight: isDropDownOpen.value ? '10rem' : 0,
+		maxHeight: uClickAway.isElActive.value ? '10rem' : 0,
 	}));
 </script>
 
 <template>
-	<div ref="dropdown-anchor" class="filter-box" @click="openDropDown">
+	<div ref="dropdown-anchor" class="filter-box" @click="uClickAway.openEl">
 		<div class="icon-filter-wrapper">
 			<IconFilter />
 		</div>
 
-		<p class="filter-item">{{ activeFilter }}</p>
+		<p v-show="activeFilter" class="filter-item">
+			{{ props.activeFilter?.value || 'NO FILTER' }}
+		</p>
 
 		<div class="icon-caret-down-wrapper">
 			<IconCaretDown />
@@ -35,9 +36,9 @@
 		<!-- Absolute toggleable dropdown -->
 		<div class="dropdown" :style="dropDownComputedStyle">
 			<p
-				v-for="(fName, fKey) in filters"
+				v-for="(fName, fKey) in props.filters"
 				class="filter-item dropdown-item"
-				@click="() => onFilterChange(fKey)"
+				@click="emit('filter-change', fKey)"
 			>
 				{{ fName }}
 			</p>

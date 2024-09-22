@@ -1,30 +1,22 @@
 <script setup>
-	import { inject } from 'vue';
 	import UserCards from '@modules/user_cards/UserCards.vue';
 	import Filter from '@modules/filter/Filter.vue';
 	import Date from './components/Date.vue';
 	import Topic from './components/Topic.vue';
 	import Navigator from './components/Navigator.vue';
 
-	const filtersContext = inject('filtersContext');
-	const categoriesContext = inject('categoriesContext');
-	const usersContext = inject('usersContext');
-	const paginationContext = inject('paginationContext');
+	const props = defineProps({
+		activeCategory: Object,
+		filters: Object,
+		activeFilter: Object,
+		users: Object,
+	});
 
-	if (
-		!filtersContext ||
-		!categoriesContext ||
-		!usersContext ||
-		!paginationContext
-	) {
-		throw Error('Screen must consume necessary contexts');
-	}
+	const emit = defineEmits(['filter-change']);
 
-	const { filters, activeFilter, onFilterChange } = filtersContext;
-	const { activeCategory } = categoriesContext;
-	const { users, likeUser } = usersContext;
-	const { totalPages, curPage, isNextPageExist, toNextPage } =
-		paginationContext;
+	const onFilterChange = (filter) => {
+		emit('filter-change', filter);
+	};
 </script>
 
 <template>
@@ -35,27 +27,26 @@
 			</div>
 
 			<div class="features">
-				<!-- Make logical -->
-				<Topic :topic="activeCategory" />
+				<Topic :topic="props.activeCategory" />
 
 				<div class="right">
 					<Filter
-						:filters
-						:active-filter="activeFilter"
+						:filters="props.filters"
+						:active-filter="props.activeFilter"
 						@filter-change="onFilterChange"
 					/>
 
-					<Navigator
-						:cur-page="curPage"
-						:total-pages="totalPages"
-						:is-next-page-exist="isNextPageExist"
-						@next-page="toNextPage"
-					/>
+					<!-- <Navigator
+						:cur-page="paginationContext?.curPage"
+						:total-pages="paginationContext?.totalPages"
+						:is-next-page-exist="paginationContext?.isNextPageExist"
+						@next-page="paginationContext?.toNextPage"
+					/> -->
 				</div>
 			</div>
 
 			<div class="user-cards-wrapper">
-				<UserCards :users :onUserLikeButtonClick="likeUser" />
+				<UserCards :users="props.users" />
 			</div>
 		</main>
 	</section>
