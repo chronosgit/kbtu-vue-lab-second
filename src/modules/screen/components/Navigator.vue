@@ -2,19 +2,21 @@
 	import IconArrowRight from '@/common/components/IconArrowRight.vue';
 	import { computed } from 'vue';
 
-	const { totalPages, curPage, isNextPageExist, onNextPage } = defineProps([
-		'totalPages',
-		'curPage',
-		'isNextPageExist',
-		'onNextPage',
-	]);
+	const props = defineProps({
+		totalPages: Object,
+		curPage: Object,
+		isNextPageExist: Object,
+		onNextPage: Function,
+	});
 
-	const navigationInfo = computed(() => `${curPage}/${totalPages}`);
+	const navigationInfo = computed(
+		() => `${props.curPage.value}/${props.totalPages.value}`
+	);
 
 	const onArrowClick = () => {
-		if (!isNextPageExist) return;
+		if (!props.isNextPageExist) return;
 
-		onNextPage();
+		props.onNextPage();
 	};
 </script>
 

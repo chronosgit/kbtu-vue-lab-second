@@ -1,10 +1,12 @@
 <script setup>
-	const { topic } = defineProps(['topic']);
+	const props = defineProps({
+		topic: Object,
+	});
 </script>
 
 <template>
 	<div class="topic-box">
-		<p class="topic">{{ topic }}</p>
+		<p class="topic">{{ props.topic?.value }}</p>
 	</div>
 </template>
 
