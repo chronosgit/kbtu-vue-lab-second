@@ -4,47 +4,26 @@
 	import Menu from '@modules/menu/Menu.vue';
 	import Screen from '@modules/screen/Screen.vue';
 	import useClickAway from '@/common/composables/useClickAway';
-	import useUsers from './composables/useUsers';
+	import useCategories from '@/common/composables/useCategories';
+	import useUsers from '@/common/composables/useUsers';
+	import useFilters from '@/common/composables/useFilters';
 
 	const menu = useTemplateRef('menu');
+	const uClickAway = useClickAway(menu);
 
-	const { isElActive, openEl } = useClickAway(menu);
-	const {
-		users,
-		likeUser,
-		totalPages,
-		curPage,
-		isNextPageExist,
-		toNextPage,
-		filters,
-		activeFilter,
-		onFilterChange,
-		categories,
-		activeCategory,
-		categoriesGradients,
-	} = useUsers();
+	const uCategories = useCategories();
+	const uFilters = useFilters();
 
-	provide('openMenu', openEl);
-	provide('usersContext', { users, likeUser });
-	provide('paginationContext', {
-		totalPages,
-		curPage,
-		isNextPageExist,
-		toNextPage,
-	});
-	provide('filtersContext', {
-		filters,
-		activeFilter,
-		onFilterChange,
-	});
-	provide('categoriesContext', {
-		categories,
-		activeCategory,
-		categoriesGradients,
-	});
+	const uUsers = useUsers(uCategories?.activeCategory, uFilters?.activeFilter);
+	// provide('paginationCtx', {
+	// 	totalPages: usersCom?.totalPages,
+	// 	curPage: usersCom?.curPage,
+	// 	isNextPageExist: usersCom?.isNextPageExist,
+	// 	toNextPage: usersCom?.toNextPage,
+	// });
 
 	const menuComputedStyle = computed(() => ({
-		left: isElActive.value ? 0 : '-100%',
+		left: uClickAway?.isElActive?.value ? 0 : '-100%',
 	}));
 </script>
 
@@ -52,15 +31,24 @@
 	<div class="home">
 		<!-- toggleable absolute menu -->
 		<div ref="menu" class="menu-wrapper" :style="menuComputedStyle">
-			<Menu />
+			<Menu
+				:categories="uCategories?.possibleCategories"
+				:categories-gradients="uCategories?.categoriesGradients"
+			/>
 		</div>
 
 		<div class="header-wrapper">
-			<Header />
+			<Header @menu-open="uClickAway?.openEl" />
 		</div>
 
 		<div class="screen-wrapper">
-			<Screen />
+			<Screen
+				:active-category="uCategories?.activeCategory"
+				:filters="uFilters?.possibleFilters"
+				:active-filter="uFilters?.activeFilter"
+				:users="uUsers?.users"
+				@filter-change="uFilters?.onFilterChange"
+			/>
 		</div>
 	</div>
 </template>
