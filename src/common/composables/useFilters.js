@@ -5,9 +5,10 @@ const useFilters = () => {
 	const router = useRouter();
 	const route = useRoute();
 
-	const activeFilter = ref(null);
+	const activeFilter = ref('NO');
 
 	const possibleFilters = {
+		NO: 'No filter',
 		TIME: 'Time',
 		RATING: 'Rating',
 	};
@@ -21,9 +22,7 @@ const useFilters = () => {
 
 		router.push({
 			path: route.path,
-			query: {
-				filter: newFilter,
-			},
+			query: { filter: newFilter },
 		});
 	};
 
@@ -32,7 +31,12 @@ const useFilters = () => {
 		(q) => {
 			const filterQuery = q['filter']?.toUpperCase();
 
-			if (!isFilterValid(filterQuery)) return;
+			if (filterQuery == null) {
+				return router.push({
+					path: route.path,
+					query: { filter: 'NO', ...route.query }, // TODO: change
+				});
+			}
 
 			activeFilter.value = filterQuery;
 		},

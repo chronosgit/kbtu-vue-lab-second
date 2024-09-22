@@ -72,11 +72,17 @@ const useUsers = (activeCategory, activeFilter) => {
 		{ immediate: true }
 	);
 
-	watch([uPagination.curPage, filteredUsers], () => {
-		const pagFilUsers = uPagination.getPaginatedItems(filteredUsers.value);
+	watch(
+		[uPagination.curPage, filteredUsers],
+		() => {
+			if (uPagination.curPage.value == null) return;
 
-		paginatedUsers.value = pagFilUsers;
-	});
+			const pagFilUsers = uPagination.getPaginatedItems(filteredUsers.value);
+
+			paginatedUsers.value = pagFilUsers;
+		},
+		{ immediate: true }
+	);
 
 	return {
 		users: paginatedUsers,
