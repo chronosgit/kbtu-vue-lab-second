@@ -1,13 +1,13 @@
 <script setup>
-	import IconArrowRight from '@/common/components/IconArrowRight.vue';
 	import { computed } from 'vue';
+	import IconArrow from '@/common/components/IconArrow.vue';
 
 	const props = defineProps({
 		curPage: Object,
 		totalPages: Object,
 	});
 
-	const emit = defineEmits(['page-next']);
+	const emit = defineEmits(['page-next', 'page-prev']);
 
 	const navigationInfo = computed(
 		() => `${props.curPage.value}/${props.totalPages.value}`
@@ -17,17 +17,29 @@
 		return props.curPage.value + 1 <= props.totalPages.value;
 	});
 
-	const onArrowClick = () => {
+	const onArrowRightClick = () => {
 		if (!hasNextPage.value) return;
 
 		emit('page-next');
 	};
+
+	const onArrowLeftClick = () => {
+		if (props.curPage.value - 1 <= 0) return;
+
+		emit('page-prev');
+	};
 </script>
 
 <template>
-	<div class="">
-		<div class="icon-arrow-right-wrapper" @click="onArrowClick">
-			<IconArrowRight />
+	<div class="navigator_box">
+		<div class="arrows">
+			<div class="icon-arrow-wrapper" @click="onArrowLeftClick">
+				<IconArrow :is-right="false" />
+			</div>
+
+			<div class="icon-arrow-wrapper" @click="onArrowRightClick">
+				<IconArrow />
+			</div>
 		</div>
 
 		<p class="navigation-info">{{ navigationInfo }}</p>
@@ -35,10 +47,19 @@
 </template>
 
 <style scoped>
-	.icon-arrow-right-wrapper {
-		--max-size: 5rem;
-		max-width: var(--max-size);
-		max-height: var(--max-size);
+	.navigator_box {
+	}
+
+	.arrows {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.icon-arrow-wrapper {
+		--size: 5rem;
+		width: var(--size);
+		height: var(--size);
 		cursor: pointer;
 	}
 
@@ -48,5 +69,12 @@
 		font-style: italic;
 		color: white;
 		letter-spacing: 1px;
+		text-align: center;
+	}
+
+	@media screen and (max-width: 640px) {
+		.navigator_box {
+			max-width: 5rem;
+		}
 	}
 </style>

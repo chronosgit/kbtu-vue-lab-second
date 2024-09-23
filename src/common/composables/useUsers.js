@@ -39,6 +39,7 @@ const useUsers = (activeCategory, activeFilter) => {
 		likedUser.rating++;
 	};
 
+	// Get categorized users
 	watch(
 		activeCategory,
 		(category) => {
@@ -51,6 +52,7 @@ const useUsers = (activeCategory, activeFilter) => {
 		{ immediate: true }
 	);
 
+	// Get filtered users
 	watch(
 		[activeFilter, categorizedUsers],
 		() => {
@@ -72,6 +74,7 @@ const useUsers = (activeCategory, activeFilter) => {
 		{ immediate: true }
 	);
 
+	// Get paginated users
 	watch(
 		[uPagination.curPage, filteredUsers],
 		() => {
@@ -90,6 +93,7 @@ const useUsers = (activeCategory, activeFilter) => {
 		totalPages: uPagination.totalPages,
 		likeUser,
 		toNextPage: uPagination.toNextPage,
+		toPrevPage: uPagination.toPrevPage,
 	};
 };
 

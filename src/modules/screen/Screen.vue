@@ -14,11 +14,17 @@
 		totalPages: Object,
 	});
 
-	const emit = defineEmits(['filter-change', 'user-like', 'page-next']);
+	const emit = defineEmits([
+		'filter-change',
+		'user-like',
+		'page-next',
+		'page-prev',
+	]);
 
 	const onUserLike = (userId) => emit('user-like', userId);
 	const onFilterChange = (filter) => emit('filter-change', filter);
 	const onPageNext = () => emit('page-next');
+	const onPagePrev = () => emit('page-prev');
 </script>
 
 <template>
@@ -42,6 +48,7 @@
 						:cur-page="props.curPage"
 						:total-pages="props.totalPages"
 						@page-next="onPageNext"
+						@page-prev="onPagePrev"
 					/>
 				</div>
 			</div>
@@ -80,6 +87,6 @@
 	.features .right {
 		display: flex;
 		align-items: center;
-		gap: 4rem;
+		gap: 2rem;
 	}
 </style>

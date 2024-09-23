@@ -1,10 +1,6 @@
-import { computed, ref, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { ref, watch } from 'vue';
 
 const usePagination = (items) => {
-	const router = useRouter();
-	const route = useRoute();
-
 	const curPage = ref(null);
 	const totalPages = ref(null);
 	const itemsPerPage = 4;
@@ -27,36 +23,23 @@ const usePagination = (items) => {
 	const toNextPage = () => {
 		if (curPage.value + 1 > totalPages) return;
 
-		router.push({
-			path: route.path,
-			query: { ...route.query, page: curPage.value + 1 },
-		});
+		curPage.value++;
+	};
+
+	const toPrevPage = () => {
+		if (curPage.value - 1 <= 0) return;
+
+		curPage.value--;
 	};
 
 	watch(items, (n) => {
 		totalPages.value = Math.ceil(n.length / itemsPerPage);
+
+		if (totalPages.value === 0) curPage.value = 0;
+		else curPage.value = 1;
 	});
 
-	watch(
-		() => route.query,
-		(q) => {
-			const page = q['page'];
-
-			if (page == null) {
-				return router.push({
-					path: route.path,
-					query: { ...route.query, page: 1 },
-				});
-			}
-
-			curPage.value = Number(page);
-		},
-		{
-			immediate: true,
-		}
-	);
-
-	return { curPage, totalPages, getPaginatedItems, toNextPage };
+	return { curPage, totalPages, getPaginatedItems, toNextPage, toPrevPage };
 };
 
 export default usePagination;

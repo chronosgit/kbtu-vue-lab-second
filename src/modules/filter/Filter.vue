@@ -27,26 +27,22 @@
 
 <template>
 	<div ref="dropdown-anchor" class="filter-box" @click.stop="uClickAway.openEl">
-		<div class="icon-filter-wrapper">
+		<div class="icon-wrapper">
 			<IconFilter />
 		</div>
 
 		<p class="filter-item">
-			{{ props.activeFilter }}
+			{{ filters[props.activeFilter.value] }}
 		</p>
 
-		<div class="icon-caret-down-wrapper">
+		<div class="icon-wrapper">
 			<IconCaretDown />
 		</div>
 
 		<!-- Absolute toggleable dropdown -->
 		<div class="dropdown" :style="dropDownComputedStyle">
 			<template v-for="(fName, fKey) in props.filters">
-				<p
-					v-if="fKey !== 'NO'"
-					class="filter-item dropdown-item"
-					@click.stop="onFilterClick(fKey)"
-				>
+				<p class="filter-item dropdown-item" @click.stop="onFilterClick(fKey)">
 					{{ fName }}
 				</p>
 			</template>
@@ -65,10 +61,13 @@
 		cursor: pointer;
 	}
 
-	.icon-filter-wrapper {
+	.icon-wrapper {
 		--max-size: 1.8rem;
+		--min-size: 1.2rem;
 		max-width: var(--max-size);
 		max-height: var(--max-size);
+		min-width: var(--min-size);
+		min-height: var(--min-size);
 	}
 
 	.filter-item,
@@ -84,12 +83,6 @@
 		margin-right: 0.8rem;
 	}
 
-	.icon-caret-down-wrapper {
-		--max-size: 1.3rem;
-		max-width: var(--max-size);
-		max-height: var(--max-size);
-	}
-
 	.dropdown {
 		position: absolute;
 		right: 0;
@@ -102,7 +95,6 @@
 		gap: 0.5rem;
 
 		background-color: #eefcf7;
-		background-color: rgba(0, 0, 0, 0.5);
 		transition: max-height 0.3s ease;
 		overflow-y: auto;
 	}
@@ -114,5 +106,15 @@
 	.dropdown-item {
 		padding-inline: 1rem;
 		cursor: pointer;
+	}
+
+	@media screen and (max-width: 640px) {
+		.filter-box {
+			gap: 0.5rem;
+		}
+
+		.filter-item {
+			font-size: 1.2rem;
+		}
 	}
 </style>
