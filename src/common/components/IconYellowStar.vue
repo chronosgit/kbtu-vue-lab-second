@@ -3,5 +3,5 @@
 </script>
 
 <template>
-	<img :src="yellowStarIcon" alt="yellow start" />
+	<img :src="yellowStarIcon" alt="yellow star" />
 </template>
