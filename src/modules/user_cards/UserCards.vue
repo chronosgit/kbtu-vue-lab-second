@@ -25,7 +25,7 @@
 		gap: 1rem;
 	}
 
-	@media screen and (max-width: 768px) {
+	@media screen and (max-width: 1024px) {
 		.user-cards {
 			grid-template-columns: 1fr;
 		}
