@@ -23,6 +23,11 @@
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 1rem;
-		align-items: stretch;
+	}
+
+	@media screen and (max-width: 768px) {
+		.user-cards {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>

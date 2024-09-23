@@ -33,11 +33,11 @@
 <template>
 	<div class="navigator_box">
 		<div class="arrows">
-			<div class="icon-arrow-right-wrapper" @click="onArrowLeftClick">
+			<div class="icon-arrow-wrapper" @click="onArrowLeftClick">
 				<IconArrow :is-right="false" />
 			</div>
 
-			<div class="icon-arrow-right-wrapper" @click="onArrowRightClick">
+			<div class="icon-arrow-wrapper" @click="onArrowRightClick">
 				<IconArrow />
 			</div>
 		</div>
@@ -56,10 +56,10 @@
 		gap: 1rem;
 	}
 
-	.icon-arrow-right-wrapper {
-		--max-size: 5rem;
-		max-width: var(--max-size);
-		max-height: var(--max-size);
+	.icon-arrow-wrapper {
+		--size: 5rem;
+		width: var(--size);
+		height: var(--size);
 		cursor: pointer;
 	}
 
@@ -70,5 +70,11 @@
 		color: white;
 		letter-spacing: 1px;
 		text-align: center;
+	}
+
+	@media screen and (max-width: 640px) {
+		.navigator_box {
+			max-width: 5rem;
+		}
 	}
 </style>

@@ -87,6 +87,6 @@
 	.features .right {
 		display: flex;
 		align-items: center;
-		gap: 4rem;
+		gap: 2rem;
 	}
 </style>

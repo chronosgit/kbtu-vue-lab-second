@@ -1,6 +1,6 @@
 <script setup>
 	import { computed } from 'vue';
-	// import IconYellowStar from '@/common/components/IconYellowStar.vue';
+	import IconYellowStar from '@/common/components/IconYellowStar.vue';
 	// import IconEmptyStar from '@/common/components/IconEmptyStar.vue';
 
 	const props = defineProps({
@@ -14,7 +14,6 @@
 	<div class="stats">
 		<p class="text">Rating</p>
 
-		<!-- Temporary -->
 		<p class="text">{{ props.rating }}</p>
 
 		<!-- <div class="stars">
@@ -35,6 +34,8 @@
 
 <style scoped>
 	.stats {
+		width: 100%;
+		max-width: 8rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -55,7 +56,7 @@
 	}
 
 	.star-wrapper {
-		--max-size: 1.5rem;
+		--max-size: 1.4rem;
 		max-width: var(--max-size);
 		max-height: var(--max-size);
 	}
