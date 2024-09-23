@@ -21,16 +21,12 @@ const usePagination = (items) => {
 	};
 
 	const toNextPage = () => {
-		console.log(curPage);
-
 		if (curPage.value + 1 > totalPages) return;
 
 		curPage.value++;
 	};
 
 	const toPrevPage = () => {
-		console.log(curPage);
-
 		if (curPage.value - 1 <= 0) return;
 
 		curPage.value--;
