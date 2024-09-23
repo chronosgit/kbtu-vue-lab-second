@@ -42,8 +42,8 @@ const usePagination = (items) => {
 		(q) => {
 			const page = q['page'];
 
-			if (page == null) {
-				return router.push({
+			if (page == null || totalPages.value == null) {
+				router.push({
 					path: route.path,
 					query: { ...route.query, page: 1 },
 				});

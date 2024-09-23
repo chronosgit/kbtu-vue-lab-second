@@ -31,7 +31,7 @@ const useFilters = () => {
 		(q) => {
 			const filterQuery = q['filter']?.toUpperCase();
 
-			if (filterQuery == null) {
+			if (filterQuery == null || !isFilterValid(filterQuery)) {
 				return router.push({
 					path: route.path,
 					query: { filter: 'NO', ...route.query }, // TODO: change
