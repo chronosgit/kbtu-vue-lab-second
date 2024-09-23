@@ -93,6 +93,7 @@ const useUsers = (activeCategory, activeFilter) => {
 		totalPages: uPagination.totalPages,
 		likeUser,
 		toNextPage: uPagination.toNextPage,
+		toPrevPage: uPagination.toPrevPage,
 	};
 };
 

@@ -45,6 +45,7 @@
 				@filter-change="uFilters?.onFilterChange"
 				@user-like="uUsers?.likeUser"
 				@page-next="uUsers?.toNextPage"
+				@page-prev="uUsers?.toPrevPage"
 			/>
 		</div>
 	</div>
