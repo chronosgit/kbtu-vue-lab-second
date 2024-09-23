@@ -32,7 +32,7 @@
 		</div>
 
 		<p class="filter-item">
-			{{ props.activeFilter }}
+			{{ filters[props.activeFilter.value] }}
 		</p>
 
 		<div class="icon-caret-down-wrapper">
@@ -42,11 +42,7 @@
 		<!-- Absolute toggleable dropdown -->
 		<div class="dropdown" :style="dropDownComputedStyle">
 			<template v-for="(fName, fKey) in props.filters">
-				<p
-					v-if="fKey !== 'NO'"
-					class="filter-item dropdown-item"
-					@click.stop="onFilterClick(fKey)"
-				>
+				<p class="filter-item dropdown-item" @click.stop="onFilterClick(fKey)">
 					{{ fName }}
 				</p>
 			</template>
@@ -66,7 +62,7 @@
 	}
 
 	.icon-filter-wrapper {
-		--max-size: 1.8rem;
+		--max-size: 1.3rem;
 		max-width: var(--max-size);
 		max-height: var(--max-size);
 	}

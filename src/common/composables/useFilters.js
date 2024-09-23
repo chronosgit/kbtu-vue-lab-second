@@ -1,4 +1,4 @@
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 const useFilters = () => {
@@ -20,30 +20,27 @@ const useFilters = () => {
 	const onFilterChange = (newFilter) => {
 		if (!isFilterValid(newFilter)) return;
 
-		router.push({
-			path: route.path,
-			query: { filter: newFilter },
-		});
+		activeFilter.value = newFilter;
 	};
 
-	watch(
-		() => route.query,
-		(q) => {
-			const filterQuery = q['filter']?.toUpperCase();
+	// watch(
+	// 	() => route.query,
+	// 	(q) => {
+	// 		const filterQuery = q['filter']?.toUpperCase();
 
-			if (filterQuery == null || !isFilterValid(filterQuery)) {
-				return router.push({
-					path: route.path,
-					query: { filter: 'NO', ...route.query }, // TODO: change
-				});
-			}
+	// 		if (filterQuery == null || !isFilterValid(filterQuery)) {
+	// 			return router.push({
+	// 				path: route.path,
+	// 				query: { filter: 'NO', ...route.query },
+	// 			});
+	// 		}
 
-			activeFilter.value = filterQuery;
-		},
-		{
-			immediate: true,
-		}
-	);
+	// 		activeFilter.value = filterQuery;
+	// 	},
+	// 	{
+	// 		immediate: true,
+	// 	}
+	// );
 
 	return {
 		possibleFilters,
