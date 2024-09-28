@@ -62,8 +62,10 @@
 
 <style scoped>
 	.screen {
+		clip-path: polygon(50% 0%, 100% 3%, 100% 100%, 50% 97%, 0% 100%, 0% 3%);
+
 		margin: 0 auto;
-		padding: 1rem;
+		padding: 4rem 1rem;
 		width: 90vw;
 		background: linear-gradient(
 			rgba(255, 255, 255, 0.918),
