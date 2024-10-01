@@ -1,30 +1,32 @@
 <script setup>
 	import { computed } from 'vue';
 	import IconYellowStar from '@/common/components/IconYellowStar.vue';
-	import ItemWithBadge from '@/common/components/ItemWithBadge.vue';
 	import Progress from '@/common/components/Progress.vue';
+	import IconWhiteStar from '@/common/components/IconWhiteStar.vue';
 
 	const props = defineProps({
 		rating: Number,
 	});
 
-	const numFullStars = computed(() => Math.floor(props.rating / 4));
+	const numFullStars = computed(() => {
+		if (Math.floor(props.rating) / 4 >= 5) {
+			return 5;
+		}
+
+		return Math.floor(props.rating / 4);
+	});
+	const numEmptyStars = computed(() => {
+		if (numFullStars.value >= 5) return 0;
+
+		return Math.floor(4 - numFullStars.value);
+	});
 	const starFragment = computed(() => {
 		if (props.rating < 4) return props.rating * 25;
 
 		return (props.rating % 4) * 25;
 	});
 
-	const badgeCustomStyle = {
-		padding: '0.3rem',
-		fontSize: '1rem',
-		fontWeight: '900',
-		lineHeight: '0.7rem',
-		color: 'black',
-		backgroundColor: '#ffe100',
-		border: '2px solid #5bb9cd',
-		transform: 'translate(1rem, 0.5rem)',
-	};
+	console.log(numFullStars.value, numEmptyStars.value);
 </script>
 
 <template>
@@ -32,33 +34,58 @@
 		<p class="text">Rating</p>
 
 		<div class="stars">
-			<template v-if="numFullStars >= 10">
-				<ItemWithBadge
-					:badge-text="String(numFullStars)"
-					:badge-style="badgeCustomStyle"
-				>
-					<div class="star-wrapper">
-						<IconYellowStar />
-					</div>
-				</ItemWithBadge>
-			</template>
+			<div v-for="_ in numFullStars" class="star-wrapper">
+				<IconYellowStar />
+			</div>
 
-			<template v-else>
-				<div v-for="_ in numFullStars" class="star-wrapper">
-					<IconYellowStar />
-				</div>
-
+			<div v-if="numFullStars < 5" class="star-common">
 				<Progress :percent="starFragment">
-					<div class="star-wrapper">
+					<div class="star-wrapper star-common-yellow">
 						<IconYellowStar />
 					</div>
 				</Progress>
-			</template>
+
+				<Progress :percent="starFragment" :reverse="true">
+					<div class="star-wrapper star-common-white">
+						<IconWhiteStar />
+					</div>
+				</Progress>
+			</div>
+
+			<div
+				v-if="numEmptyStars > 0"
+				v-for="_ in numEmptyStars"
+				class="star-wrapper"
+			>
+				<IconWhiteStar />
+			</div>
 		</div>
 	</div>
 </template>
 
 <style scoped>
+	.star-common {
+		width: 1.4rem;
+		height: 1.4rem;
+		position: relative;
+	}
+
+	.star-common * {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+
+	.star-common-yellow {
+		z-index: 2;
+	}
+
+	.star-common-white {
+		z-index: 3;
+	}
+
 	.stats {
 		width: 100%;
 		display: flex;
