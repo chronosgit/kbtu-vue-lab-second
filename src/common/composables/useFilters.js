@@ -23,25 +23,6 @@ const useFilters = () => {
 		activeFilter.value = newFilter;
 	};
 
-	// watch(
-	// 	() => route.query,
-	// 	(q) => {
-	// 		const filterQuery = q['filter']?.toUpperCase();
-
-	// 		if (filterQuery == null || !isFilterValid(filterQuery)) {
-	// 			return router.push({
-	// 				path: route.path,
-	// 				query: { filter: 'NO', ...route.query },
-	// 			});
-	// 		}
-
-	// 		activeFilter.value = filterQuery;
-	// 	},
-	// 	{
-	// 		immediate: true,
-	// 	}
-	// );
-
 	return {
 		possibleFilters,
 		activeFilter,

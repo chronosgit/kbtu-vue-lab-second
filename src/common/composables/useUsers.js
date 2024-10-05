@@ -9,6 +9,8 @@ const useUsers = (activeCategory, activeFilter) => {
 	const filteredUsers = ref([]);
 	const paginatedUsers = ref([]);
 
+	const likeFlag = ref(0);
+
 	const uPagination = usePagination(filteredUsers);
 
 	const filterByTime = (users) => {
@@ -36,6 +38,7 @@ const useUsers = (activeCategory, activeFilter) => {
 			return;
 		}
 
+		likeFlag.value++;
 		likedUser.rating++;
 	};
 
@@ -54,7 +57,7 @@ const useUsers = (activeCategory, activeFilter) => {
 
 	// Get filtered users
 	watch(
-		[activeFilter, categorizedUsers],
+		[likeFlag, activeFilter, categorizedUsers],
 		() => {
 			switch (activeFilter.value) {
 				case 'TIME':
